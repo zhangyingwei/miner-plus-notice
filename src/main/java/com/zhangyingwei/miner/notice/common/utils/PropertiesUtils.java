@@ -7,7 +7,8 @@ import java.util.Properties;
  * Created by zhangyw on 2018/4/8.
  */
 public class PropertiesUtils {
-    private static final String filePath = "src/main/resources/miner-mail.properties";
+    private static final String filePath = "resources/miner-mail.properties";
+//    private static final String filePath = "src/main/resources/miner-mail.properties";
     private static Properties properties;
     public static void loadProp() throws IOException {
         if (properties == null) {

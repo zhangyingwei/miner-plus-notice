@@ -21,7 +21,8 @@ import java.util.Map;
 public class BeetlUtils {
     private static final String TEMPLAGE = "/email.html";
 //    private static ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader("src/main/resources/template/");
-    static String root = System.getProperty("user.dir")+ File.separator+"src/main/resources/template";
+//    static String root = System.getProperty("user.dir")+ File.separator+"src/main/resources/template";
+    static String root = System.getProperty("user.dir")+ File.separator+"resources/template";
     static FileResourceLoader resourceLoader = new FileResourceLoader(root,"utf-8");
     private static Configuration cfg;
     static {

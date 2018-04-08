@@ -143,7 +143,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.zhangyingwei.miner.MinerApplication</mainClass>
+                            <mainClass>com.zhangyingwei.miner.notice.MinerNoticeApplication</mainClass>
                             <classpathPrefix>lib/</classpathPrefix>
                             <addClasspath>true</addClasspath>
                         </manifest>
