@@ -1,0 +1,16 @@
+<div style="width: 600px; border: 1px solid #cccccc;border-radius:0 0 8px 8px; border-top:4px solid #df3434; padding: 0 auto;margin: 0 auto;">
+    <div style="text-align: center; padding: 10px 0; font-size: 20px; font-weight: bold;">Miner - 每日早报</div>
+        <div>
+            <ul style="list-style: none;padding: 0 20px;">
+                <% for(v in items) { %>
+                <li style="padding: 3px; border-bottom: 1px solid #9e9e9e69;">
+                    <a style="color: #9E9E9E; font-size: 15px; text-decoration: none;" target="_blank" href="${v.url}">${v.title}</a>
+                    <span style="color: #9E9E9E; font-size: 10px;">[ ${v.topic} ]</span>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    <div style="padding: 20px; text-align: center;font-size: 12px; color: #9d9d9d;">
+        如果打扰到你，不好意思啊，有本事你 ** <a style="color: #F44336;" href="#">退订</a> 啊！
+    </div>
+</div>

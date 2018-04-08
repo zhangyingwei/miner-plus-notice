@@ -1,14 +1,11 @@
-package com.zhangyingwei.miner.notice.common.subscribe.model;
+package com.zhangyingwei.miner.notice.common.sources.model;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @author: zhangyw
- * @date: 2018/4/5
- * @time: 下午10:25
- * @desc:
+ * Created by zhangyw on 2018/4/8.
  */
 @Getter
 @Setter
@@ -26,4 +23,7 @@ public class Content {
     private String getdate;
     private String pushdate;
     private String state;
+    private String hashpush;
+    private String topicid;
+    private String topic;
 }
