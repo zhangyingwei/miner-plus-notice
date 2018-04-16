@@ -3,10 +3,12 @@ package com.zhangyingwei.miner.notice.common.utils;
 import com.zhangyingwei.miner.notice.common.sources.action.ContentAction;
 import com.zhangyingwei.miner.notice.common.sources.model.Content;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by zhangyw on 2018/4/8.
@@ -47,6 +49,39 @@ public class MinerUtils {
         return BeetlUtils.formateTemplage(new HashMap(){
             {
                 put("items", pushContents);
+            }
+        });
+    }
+
+    public static String formateWeiBoContent(List<Content> contents) {
+        StringBuilder result = new StringBuilder();
+        Integer length = contents.size();
+        for (int i = 0; i < contents.size(); i++) {
+            String title = contents.get(i).getTitle();
+            if (title.length() > 20) {
+                title = title.substring(0, 20).concat("...");
+            }
+            contents.get(i).setTitle(title);
+            result.append(contents.get(i).getTitle());
+            result.append(new String(new byte[5]));
+//                result.append(contents.get(i).getUrl());
+            if (result.length() > 100) {
+                break;
+            }else{
+                length = i + 1;
+            }
+        }
+        List<Content> resContents = contents.subList(0, length).stream().map(line -> {
+            line.setTitle(line.getTitle().replaceAll("\\n",""));
+            line.setUrl(URLEncoder.encode(line.getUrl())
+                    .replaceAll("%3A",":")
+                    .replaceAll("%2F","/")
+            );
+            return line;
+        }).collect(Collectors.toList());
+        return BeetlUtils.formateWeiBoTemplage(new HashMap(){
+            {
+                put("items", resContents);
             }
         });
     }

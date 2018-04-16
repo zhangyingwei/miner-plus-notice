@@ -20,6 +20,7 @@ import java.util.Map;
  */
 public class BeetlUtils {
     private static final String TEMPLAGE = "/email.html";
+    private static final String WEIBOTEMPLAGE = "/weibo.template";
 //    private static ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader("src/main/resources/template/");
 //    static String root = System.getProperty("user.dir")+ File.separator+"src/main/resources/template";
     static String root = System.getProperty("user.dir")+ File.separator+"resources/template";
@@ -40,14 +41,16 @@ public class BeetlUtils {
         return t.render();
     }
 
+    public static String formateWeiBoTemplage(Map<String,List<Content>> contents){
+        Template t = gt.getTemplate(WEIBOTEMPLAGE);
+        t.binding(contents);
+        return t.render();
+    }
+
     public static void main(String[] args) {
         ContentAction contentAction = new ContentAction();
         List<Content> contents = contentAction.listNoticeContents();
-        System.out.println(BeetlUtils.formateTemplage(new HashMap(){
-            {
-                put("items", contents);
-            }
-        }));
+        System.out.println(MinerUtils.formateWeiBoContent(contents));
     }
 
 }
