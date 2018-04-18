@@ -4,10 +4,8 @@ import com.zhangyingwei.miner.notice.common.sources.action.ContentAction;
 import com.zhangyingwei.miner.notice.common.sources.model.Content;
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -64,7 +62,6 @@ public class MinerUtils {
             contents.get(i).setTitle(title);
             result.append(contents.get(i).getTitle());
             result.append(new String(new byte[5]));
-//                result.append(contents.get(i).getUrl());
             if (result.length() > 100) {
                 break;
             }else{
@@ -79,10 +76,17 @@ public class MinerUtils {
             );
             return line;
         }).collect(Collectors.toList());
+        String currentDate = getCurrentDate();
         return BeetlUtils.formateWeiBoTemplage(new HashMap(){
             {
                 put("items", resContents);
+                put("date", currentDate);
             }
         });
+    }
+
+    private static String getCurrentDate() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(new Date());
     }
 }

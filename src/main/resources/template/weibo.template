@@ -1,4 +1,4 @@
 <% for(v in items) { %>
 [${v.title}]-(${v.topic})
 <% } %>
-查看全部内容 http://miner.zhangyingwei.com
+查看全部内容 http://miner.zhangyingwei.com?date=${date}
